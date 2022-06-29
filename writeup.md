@@ -20,15 +20,9 @@ The goals / steps of this project are the following:
 
 [arch1]: ./doc/lenet_arch.jpeg
 [arch2]: ./doc/nvidia_arch.png
-[set1c]: ./doc/center.jpg
-[set1l]: ./doc/left.jpg
-[set1r]: ./doc/right.jpg
-[set2c]: ./doc/center2.jpg
-[set2l]: ./doc/left2.jpg
-[set2r]: ./doc/right2.jpg
-[set3c]: ./doc/center3.jpg
-[set3l]: ./doc/left3.jpg
-[set3r]: ./doc/right3.jpg
+[datal]: ./doc/left.jpg
+[datac]: ./doc/center.jpg
+[datar]: ./doc/right.jpg
 [frame1]: ./doc/videoframe1.jpg
 [frame2]: ./doc/videoframe2.jpg
 [frame3]: ./doc/videoframe3.jpg
@@ -116,17 +110,9 @@ To augment the data sat, I also flipped images and angles to help generalise the
 
 I also used images from the right and left cameras, and added a correction to the steering values to help direct the car back to the centre of the road. Images from all three cameras at the same time look like this:
 
-![Left Camera][set1l]
-![Centre Camera][set1c]
-![Right Camera][set1r]
-
-![Left Camera][set2l]
-![Centre Camera][set2c]
-![Right Camera][set2r]
-
-![Left Camera][set3l]
-![Centre Camera][set3c]
-![Right Camera][set3r]
+![Left Camera][datal]
+![Centre Camera][datac]
+![Right Camera][datar]
 
 I had two preprocessing steps, both impelemented by lambda layers in Keras. The steps were:
 1. Normalising and mean-centreing the data (clone.py line 44)
