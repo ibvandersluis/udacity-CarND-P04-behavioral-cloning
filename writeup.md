@@ -20,6 +20,18 @@ The goals / steps of this project are the following:
 
 [arch1]: ./doc/lenet_arch.jpeg
 [arch2]: ./doc/nvidia_arch.png
+[set1c]: ./doc/center1.jpg
+[set1l]: ./doc/left1.jpg
+[set1r]: ./doc/right1.jpg
+[set2c]: ./doc/center2.jpg
+[set2l]: ./doc/left2.jpg
+[set2r]: ./doc/right2.jpg
+[set3c]: ./doc/center3.jpg
+[set3l]: ./doc/left3.jpg
+[set3r]: ./doc/right3.jpg
+[frame1]: ./doc/videoframe1.jpg
+[frame2]: ./doc/videoframe2.jpg
+[frame3]: ./doc/videoframe3.jpg
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
@@ -100,7 +112,21 @@ The network can be visualised like this:
 
 From the beginning of the project, I chose to use good training data by practicing my drives on the track until I was confident my driving was smooth, I was driving in the centre of the road, and I wasn't recording any obvious mistakes. This took some time, mainly due to mouse sensitivity in the virtual machine and no options for adjusting it in the settings of the simulator. After I recorded a good lap going in one direction, I then turned the vehicle around and recorded another going the opposite direction. This is the only training data I recorded, and was sufficient to complete the project.
 
-To augment the data sat, I also flipped images and angles to help generalise the model. I also used images from the right and left cameras, and added a correction to the steering values to help direct the car back to the centre of the road.
+To augment the data sat, I also flipped images and angles to help generalise the model.
+
+I also used images from the right and left cameras, and added a correction to the steering values to help direct the car back to the centre of the road. Images from all three cameras at the same time look like this:
+
+![Left Camera][set1l]
+![Centre Camera][set1c]
+![Right Camera][set1r]
+
+![Left Camera][set2l]
+![Centre Camera][set2c]
+![Right Camera][set2r]
+
+![Left Camera][set2l]
+![Centre Camera][set2c]
+![Right Camera][set2r]
 
 I had two preprocessing steps, both impelemented by lambda layers in Keras. The steps were:
 1. Normalising and mean-centreing the data (clone.py line 44)
@@ -116,4 +142,11 @@ I used an adam optimizer so that manually training the learning rate wasn't nece
 
 #### Video
 
-After completing a lap, I made a video containing the centre-camera footage of the run. It can be found in [track1.mp4](./track1.mp4). The images used in the video are in [track1/](./track1/).
+After completing a lap, I made a video containing the centre-camera footage of the run. It can be found in [track1.mp4](./track1.mp4).
+
+Some frames from the video:
+
+![Sample Frame 1][frame1]
+![Sample Frame 2][frame2]
+![Sample Frame 3][frame3]
+
