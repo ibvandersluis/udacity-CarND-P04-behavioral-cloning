@@ -20,9 +20,9 @@ The goals / steps of this project are the following:
 
 [arch1]: ./doc/lenet_arch.jpeg
 [arch2]: ./doc/nvidia_arch.png
-[set1c]: ./doc/center1.jpg
-[set1l]: ./doc/left1.jpg
-[set1r]: ./doc/right1.jpg
+[set1c]: ./doc/center.jpg
+[set1l]: ./doc/left.jpg
+[set1r]: ./doc/right.jpg
 [set2c]: ./doc/center2.jpg
 [set2l]: ./doc/left2.jpg
 [set2r]: ./doc/right2.jpg
@@ -124,9 +124,9 @@ I also used images from the right and left cameras, and added a correction to th
 ![Centre Camera][set2c]
 ![Right Camera][set2r]
 
-![Left Camera][set2l]
-![Centre Camera][set2c]
-![Right Camera][set2r]
+![Left Camera][set3l]
+![Centre Camera][set3c]
+![Right Camera][set3r]
 
 I had two preprocessing steps, both impelemented by lambda layers in Keras. The steps were:
 1. Normalising and mean-centreing the data (clone.py line 44)
