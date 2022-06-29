@@ -11,15 +11,21 @@ with open('data/track1/driving_log.csv') as csvfile:
     reader = csv.reader(csvfile)
     for line in reader:
         rows.append(line)
-
+        
+correction = 0.2
 images = []
 measurements = []
 for row in rows:
-    path = row[0]
-    image = ndimage.imread(path)
-    images.append(image)
-    measurement = float(row[3])
-    measurements.append(measurement)
+    for index in range(3):
+        path = row[index]
+        image = ndimage.imread(path)
+        images.append(image)
+        measurement = float(row[3])
+        if index == 1:
+            measurement += correction
+        elif index == 2:
+            measurement -= correction
+        measurements.append(measurement)
     
 augmented_images, augmented_measurements = [], []
 for image,measurement in zip(images, measurements):
