@@ -3,7 +3,8 @@ import cv2
 import numpy as np
 from scipy import ndimage
 from keras.models import Sequential
-from keras.layers import Flatten, Dense, Lambda
+from keras.layers import Flatten, Dense, Lambda, Activation
+from keras.layers.convolutional import Conv2D, MaxPooling2D
 
 rows = []
 with open('data/track1/driving_log.csv') as csvfile:
@@ -25,7 +26,13 @@ y_train = np.array(measurements)
 
 model = Sequential()
 model.add(Lambda(lambda x: x / 255.0 - 0.5, input_shape=(160,320,3)))
+model.add(Conv2D(6,5,5,activation='relu'))
+model.add(MaxPooling2D())
+model.add(Conv2D(6,5,5,activation='relu'))
+model.add(MaxPooling2D())
 model.add(Flatten())
+model.add(Dense(120))
+model.add(Dense(84))
 model.add(Dense(1))
 
 model.compile(loss='mse', optimizer='adam')
