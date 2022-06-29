@@ -29,7 +29,8 @@ def loadData(correction=0.2):
     
     return images, measurements
 
-def augmentData(images, measurements):
+def augmentData():
+    images, measurements = loadData()
     augmented_images, augmented_measurements = [], []
     for image,measurement in zip(images, measurements):
         augmented_images.append(image)
@@ -58,11 +59,11 @@ def LeNet():
 
 def Nvidia():
     model = createPreprocessingLayers()
-    model.add(Convolution2D(24,5,5, subsample=(2,2), activation='relu'))
-    model.add(Convolution2D(36,5,5, subsample=(2,2), activation='relu'))
-    model.add(Convolution2D(48,5,5, subsample=(2,2), activation='relu'))
-    model.add(Convolution2D(64,3,3, activation='relu'))
-    model.add(Convolution2D(64,3,3, activation='relu'))
+    model.add(Conv2D(24,5,5, subsample=(2,2), activation='relu'))
+    model.add(Conv2D(36,5,5, subsample=(2,2), activation='relu'))
+    model.add(Conv2D(48,5,5, subsample=(2,2), activation='relu'))
+    model.add(Conv2D(64,3,3, activation='relu'))
+    model.add(Conv2D(64,3,3, activation='relu'))
     model.add(Flatten())
     model.add(Dense(100))
     model.add(Dense(50))
@@ -76,6 +77,6 @@ def trainModel(model, X_train, y_train, epochs=5):
     model.save('model.h5')
 
 if __name__ == "__main__":
-    X_train, y_train = augmentData(loadData())
+    X_train, y_train = augmentData()
     model = Nvidia()
     trainModel(model, X_train, y_train, epochs=5)
